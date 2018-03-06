@@ -23,24 +23,21 @@ header("Content-type: text/html; charset=utf-8");
 				foreach ($data as $value) {
 					$top=mt_rand(100,550);
 					$left=mt_rand(0,1500);
-					echo "<div style=\"width: 250px;height: 200px;background-color:#FFEC8B;position: absolute; top: {$top}px;left: {$left}px;\">";
-
-					echo "<p style=\"display:inline;color:blue;font-size:20;\">{$value['wname']}</p>";
-					echo "<div align=\"right\" style=\"font-size: 15;color:#228B22\">NO.{$value['wid']}</div>";
-						echo "<p>{$value['wcontent']}</p>";
-						echo "<p style=\"bottom:0;left:0;position:absolute;color:#8C8C8C\">{$value['wtime']}</p>";
-						// echo "<form method=\"get\" action =\"./delete.php\" ";
-						echo "<a href=\"./delete.php?id={$value['wid']}\">";
-						echo "<div style=\"bottom:18;left:220;position:absolute;\">";
-							echo "<input type=\"submit\" value=\"x\" style=\"background-color:#FFEC8B\"></input>";
-						echo "</div>";
-						echo "</a>";
-						// echo "</form>";
-					echo "</div>";
-				
-				}
-				// echo "<span>hello </span>";
 				?>
+				<div style="width: 250px;height: 250px;background-color: #FFEC8B;position:absolute;top: <?php echo $top; ?>px; left: <?php echo $left; ?>px;">
+					<span style="display: inline;color: blue;font-size: 20;"><?php echo $value['wname']; ?></span>
+					<div align="right" style="font-size: 15;color: #228B22;">NO.<?php echo $value['wid']; ?></div>
+					<p><?php echo $value['wcontent']; ?></p>
+					<p style="bottom: 0;left: 0;position: absolute;color: #8C8C8C;"><?php echo $value['wtime']; ?></p>
+					<form method="get" action="./delete.php">
+						<a href="./delete.php?id=<?php echo $value['wid']; ?>">
+							<div style="bottom: 18;left: 220;position: absolute;">
+								<input type="submit" name="" value="x" style="background-color: #FFEC8B;"/>
+							</div>
+						</a>
+					</form>
+				</div>
+				<?php } ?>
 			</div>
 			<center><input type="button" verti style="position: absolute;top: 800; text-align: center;  width:100px;height: 58px;background-color: #EE7AE9;font-size: 20;color: white" value="我要许愿" onclick="location.href='./wish.php';"></input></center>
 		</div>
